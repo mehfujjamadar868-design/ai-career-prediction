@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1YXLXDKTDEbmGilhVx2ZKl4wHfJAji_uA
 """
 
-!pip install streamlit scikit-learn pandas numpy pyngrok
+
 
 import pandas as pd
 import random
