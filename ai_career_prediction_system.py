@@ -160,108 +160,107 @@ pickle.dump(scaler, open("scaler.pkl", "wb"))
 print("Model Saved Successfully")
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%writefile app.py
-# 
-# import streamlit as st
-# import pandas as pd
-# import pickle
-# 
-# # Load model
-# model = pickle.load(open("career_model.pkl", "rb"))
-# scaler = pickle.load(open("scaler.pkl", "rb"))
-# 
-# st.set_page_config(page_title="AI Career Prediction")
-# 
-# st.title("AI Smart Career Prediction System")
-# 
-# st.write("Enter Student Details")
-# 
-# # Sliders
-# 
-# cgpa = st.slider("CGPA", 0.0, 10.0, 7.0)
-# 
-# python_skill = st.slider("Python Skill",1,10,5)
-# 
-# communication = st.slider("Communication",1,10,5)
-# 
-# aptitude = st.slider("Aptitude",1,10,5)
-# 
-# web_interest = st.slider("Web Interest",1,10,5)
-# 
-# ai_interest = st.slider("AI Interest",1,10,5)
-# 
-# creativity = st.slider("Creativity",1,10,5)
-# 
-# debugging_skill = st.slider("Debugging Skill",1,10,5)
-# 
-# networking_skill = st.slider("Networking Skill",1,10,5)
-# 
-# projects = st.slider("Projects",0,10,2)
-# 
-# certifications = st.slider("Certifications",0,10,1)
-# 
-# # Prediction
-# 
-# if st.button("Predict Career"):
-# 
-#     input_data = pd.DataFrame([{
-#         "cgpa": cgpa,
-#         "python_skill": python_skill,
-#         "communication": communication,
-#         "aptitude": aptitude,
-#         "web_interest": web_interest,
-#         "ai_interest": ai_interest,
-#         "creativity": creativity,
-#         "debugging_skill": debugging_skill,
-#         "networking_skill": networking_skill,
-#         "projects": projects,
-#         "certifications": certifications
-#     }])
-# 
-#     scaled_data = scaler.transform(input_data)
-# 
-#     prediction = model.predict(scaled_data)[0]
-# 
-#     st.success(f"Predicted Career: {prediction}")
-# 
-#     # Recommendations
-# 
-#     if prediction == "AI/ML":
-#         st.info("Skills: Python, TensorFlow, Machine Learning")
-# 
-#     elif prediction == "Web Development":
-#         st.info("Skills: HTML, CSS, JavaScript, React")
-# 
-#     elif prediction == "Data Science":
-#         st.info("Skills: Pandas, SQL, Power BI")
-# 
-#     elif prediction == "Cybersecurity":
-#         st.info("Skills: Networking, Kali Linux, Ethical Hacking")
-# 
-#     elif prediction == "Cloud Computing":
-#         st.info("Skills: AWS, Azure, Docker")
-# 
-#     elif prediction == "DevOps":
-#         st.info("Skills: CI/CD, Jenkins, Kubernetes")
-# 
-#     elif prediction == "UI/UX Design":
-#         st.info("Skills: Figma, Adobe XD, Wireframing")
-# 
-#     elif prediction == "Game Development":
-#         st.info("Skills: Unity, Unreal Engine, C#")
-# 
-#     elif prediction == "Blockchain":
-#         st.info("Skills: Solidity, Smart Contracts")
-# 
-#     elif prediction == "Software Testing":
-#         st.info("Skills: Selenium, Automation Testing")
-# 
-#     elif prediction == "Embedded Systems":
-#         st.info("Skills: IoT, Arduino, Microcontrollers")
-# 
-#     else:
-#         st.info("Skills: Flutter, Android Studio, Firebase")
+%%writefile app.py
 
+import streamlit as st
+import pandas as pd
+import pickle
+
+# Load model
+model = pickle.load(open("career_model.pkl", "rb"))
+scaler = pickle.load(open("scaler.pkl", "rb"))
+
+st.set_page_config(page_title="AI Career Prediction")
+
+st.title("AI Smart Career Prediction System")
+
+st.write("Enter Student Details")
+
+# Sliders
+
+cgpa = st.slider("CGPA", 0.0, 10.0, 7.0)
+
+python_skill = st.slider("Python Skill",1,10,5)
+
+communication = st.slider("Communication",1,10,5)
+
+aptitude = st.slider("Aptitude",1,10,5)
+
+web_interest = st.slider("Web Interest",1,10,5)
+
+ai_interest = st.slider("AI Interest",1,10,5)
+
+creativity = st.slider("Creativity",1,10,5)
+
+debugging_skill = st.slider("Debugging Skill",1,10,5)
+
+networking_skill = st.slider("Networking Skill",1,10,5)
+
+projects = st.slider("Projects",0,10,2)
+
+certifications = st.slider("Certifications",0,10,1)
+
+# Prediction
+
+if st.button("Predict Career"):
+
+    input_data = pd.DataFrame([{
+        "cgpa": cgpa,
+        "python_skill": python_skill,
+        "communication": communication,
+        "aptitude": aptitude,
+        "web_interest": web_interest,
+        "ai_interest": ai_interest,
+        "creativity": creativity,
+        "debugging_skill": debugging_skill,
+        "networking_skill": networking_skill,
+        "projects": projects,
+        "certifications": certifications
+    }])
+
+    scaled_data = scaler.transform(input_data)
+
+    prediction = model.predict(scaled_data)[0]
+
+    st.success(f"Predicted Career: {prediction}")
+
+    # Recommendations
+
+    if prediction == "AI/ML":
+        st.info("Skills: Python, TensorFlow, Machine Learning")
+
+    elif prediction == "Web Development":
+        st.info("Skills: HTML, CSS, JavaScript, React")
+
+    elif prediction == "Data Science":
+        st.info("Skills: Pandas, SQL, Power BI")
+
+    elif prediction == "Cybersecurity":
+        st.info("Skills: Networking, Kali Linux, Ethical Hacking")
+
+    elif prediction == "Cloud Computing":
+        st.info("Skills: AWS, Azure, Docker")
+
+    elif prediction == "DevOps":
+        st.info("Skills: CI/CD, Jenkins, Kubernetes")
+
+    elif prediction == "UI/UX Design":
+        st.info("Skills: Figma, Adobe XD, Wireframing")
+
+    elif prediction == "Game Development":
+        st.info("Skills: Unity, Unreal Engine, C#")
+
+    elif prediction == "Blockchain":
+        st.info("Skills: Solidity, Smart Contracts")
+
+    elif prediction == "Software Testing":
+        st.info("Skills: Selenium, Automation Testing")
+
+    elif prediction == "Embedded Systems":
+        st.info("Skills: IoT, Arduino, Microcontrollers")
+
+    else:
+        st.info("Skills: Flutter, Android Studio, Firebase")
 
 https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 
