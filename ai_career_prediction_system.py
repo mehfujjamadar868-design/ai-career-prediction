@@ -264,7 +264,12 @@ if st.button("Predict Career"):
 import subprocess
 
 # This executes the download via the terminal properly
-subprocess.run(["wget", "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"])
+import urllib.request
+
+url = "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
+output_filename = "cloudflared-linux-amd64.deb"
+
+urllib.request.urlretrieve(url, output_filename)
 
 
 
