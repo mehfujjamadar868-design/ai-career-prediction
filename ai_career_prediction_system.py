@@ -261,7 +261,10 @@ if st.button("Predict Career"):
     else:
         st.info("Skills: Flutter, Android Studio, Firebase")
 
-https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+import subprocess
+
+# This executes the download via the terminal properly
+subprocess.run(["wget", "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"])
 
 !dpkg -i cloudflared-linux-amd64.deb
 
