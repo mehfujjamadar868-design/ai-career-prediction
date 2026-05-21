@@ -263,9 +263,5 @@ print("Model Saved Successfully")
 #         st.info("Skills: Flutter, Android Studio, Firebase")
 
 
-!wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 
-!dpkg -i cloudflared-linux-amd64.deb
-
-!cloudflared tunnel --url http://localhost:8501
 
