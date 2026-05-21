@@ -262,7 +262,6 @@ print("Model Saved Successfully")
 #     else:
 #         st.info("Skills: Flutter, Android Studio, Firebase")
 
-!streamlit run app.py &>/content/logs.txt &
 
 !wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 
