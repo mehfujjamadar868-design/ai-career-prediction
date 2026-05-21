@@ -160,7 +160,6 @@ pickle.dump(scaler, open("scaler.pkl", "wb"))
 print("Model Saved Successfully")
 
 # Commented out IPython magic to ensure Python compatibility.
-%%writefile app.py
 
 import streamlit as st
 import pandas as pd
