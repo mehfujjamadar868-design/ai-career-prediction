@@ -266,8 +266,6 @@ import subprocess
 # This executes the download via the terminal properly
 subprocess.run(["wget", "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"])
 
-!dpkg -i cloudflared-linux-amd64.deb
-
 !cloudflared tunnel --url http://localhost:8501
 
 
